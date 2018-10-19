@@ -110,7 +110,7 @@ def device_inquiry_with_with_rssi(sock):
 
     results = []
 
-    duration = 25
+    duration = 10
     max_responses = 255
     cmd_pkt = struct.pack("BBBBB", 0x33, 0x8b, 0x9e, duration, max_responses)
     bluez.hci_send_cmd(sock, bluez.OGF_LINK_CTL, bluez.OCF_INQUIRY, cmd_pkt)
@@ -190,7 +190,4 @@ while(1):
 
     for i in arr:
         updateThing(i)
-
-    print("sleep 30 seconds")
-    time.sleep(5)
 
